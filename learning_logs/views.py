@@ -1,7 +1,9 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render
 from django.shortcuts import render,redirect
 
-from .models import Topic
+from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 
 # Create your views here.
@@ -62,3 +64,22 @@ def new_entry(request, topic_id):
     context = {'topic': topic, 'form': form}
     return render(request, 'learning_logs/new_entry.html',
                   context)
+
+
+def edit_entry(request, entry_id):
+    """编辑既有的条目"""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+
+    if request.method != 'POST':
+        #初次请求，使用当前的条目填充表单
+        form =EntryForm(instance=entry)
+    else:
+        #POST提交的数据对数据进行处理
+        form = EntryForm(data=request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            return redirect('learning_logs:topic', topic_id=topic.id)
+
+    context = {'entry':entry, 'topic':topic, 'form':form}
+    return render(request, 'learning_logs/edit_entry.html', context)
