@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 
 from .models import Topic, Entry
@@ -9,6 +10,7 @@ def index(request):
     """学习笔记的主页"""
     return render(request, 'learning_logs/index.html')
 
+@login_required
 def topics(request):
     """显示所有主题"""
     topics = Topic.objects.order_by('date_added')
@@ -16,6 +18,7 @@ def topics(request):
     return render(request, 'learning_logs/topics.html',
                   context)
 
+@login_required
 def topic(request, topic_id):
     """显示单个主题以及所有的条目"""
     topic = Topic.objects.get(id=topic_id)
@@ -24,6 +27,7 @@ def topic(request, topic_id):
     return render(request, 'learning_logs/topic.html',
                   context)
 
+@login_required
 def new_topic(request):
     """添加新主题"""
     if request.method != 'POST':
@@ -42,6 +46,7 @@ def new_topic(request):
                   context)
 
 
+@login_required
 def new_entry(request, topic_id):
     """在特定主题中添加新条目"""
     topic = Topic.objects.get(id=topic_id)
@@ -63,6 +68,7 @@ def new_entry(request, topic_id):
                   context)
 
 
+@login_required
 def edit_entry(request, entry_id):
     """编辑既有的条目"""
     entry = Entry.objects.get(id=entry_id)
