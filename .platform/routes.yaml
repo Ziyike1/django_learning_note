@@ -1,0 +1,7 @@
+"https://{default}/":
+  type: upstream
+  upstream: "ll_project"
+
+"https://www.{default}/":
+  type: redirect
+  to: "https://{default}/"
