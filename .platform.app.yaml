@@ -14,7 +14,7 @@ web:
       passthru: true
     "/static":
       root: "static"
-      express: 1h
+      expires: 1h
       allow: true
 
 disk: 512
