@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-m&5#513m0nwoa^%nix8xk=bczv$jb5(-5v0%wd3frn8$x2zej_
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://www.master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site/',
-    'http://master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site/',
-    'https://www.master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site/',
-    'https://master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site/',
+    'www.master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
+    'master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
+    'www.master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
+    'master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
 ]
 
 
