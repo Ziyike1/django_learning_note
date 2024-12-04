@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
     'www.master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
     'master-7rqtwti-ymqdixuizczr6.ca-1.platformsh.site',
+    'localhost',
 ]
 
 
