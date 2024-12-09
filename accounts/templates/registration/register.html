@@ -3,7 +3,7 @@
 {% load django_bootstrap5 %}
 
 {% block page_header %}
-    <h2>Register new account</h2>
+    <h2>注册一个新账户</h2>
 {% endblock page_header %}
 
 {% block content %}
@@ -11,7 +11,7 @@
     <form action="{% url 'accounts:register' %}" method='post'>
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% bootstrap_button button_type='submit' content='Register' %}
+    {% bootstrap_button button_type='submit' content='注册' %}
     </form>
 
 {% endblock content %}
