@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Learning Log</title>
+    <title>学习笔记</title>
 
     {% load django_bootstrap5 %}
     {% bootstrap_css %}
@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
-                Learning Log
+                学习笔记
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -26,27 +26,27 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'learning_logs:topics' %}">
-                            Topics</a></li>
+                            主题</a></li>
                 </ul>
                 <!-- 与账户相关的链接 -->
                 <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <span class="navbar-text me-2">Hello, {{ user.username }}.</span>
+                            <span class="navbar-text me-2">欢迎, {{ user.username }}.</span>
                         </li>
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:register' %}">
-                                Register</a></li>
+                                注册</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:login' %}">
-                                Log in</a></li>
+                                登录</a></li>
                     {% endif %}
                    {% if user.is_authenticated %}
                        <form action="{% url 'accounts:logout' %}" method="post">
                        {% csrf_token %}
                            <button class="btn btn-outline-secondary btn-sm" name="submit">
-                               Log out</button>
+                               注销</button>
                        </form>
                    {% endif %}
                 </ul>
